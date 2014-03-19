@@ -10,7 +10,7 @@ var Sequelize = require('sequelize')
 
 db = model.sequelize;
 
-model.createTables();
+// model.createTables();
 
 db
   .authenticate()
@@ -20,7 +20,7 @@ db
     } else {
       console.log('Connection has been established successfully in app')
 
-      User
+      model.User
       .create({
         username: 'kaherson@yahoo.com',
         password: 'crusher',
@@ -42,7 +42,7 @@ db
           }
         })        
 
-      Coach
+      model.Coach
        .create({
         username: 'isaac@planetgranite.com',
         password: 'heckler'
@@ -70,7 +70,7 @@ db
      } else {
        console.log('It worked within app')
        
-       User
+       model.User
         .find({ where: { username: 'kaherson@yahoo.com' } })
         .complete(function(err, kaherson) {
           if (!!err) {
@@ -82,7 +82,7 @@ db
           }
         })
 
-       Coach
+       model.Coach
         .find({ where: { username: 'isaac@planetgranite.com' } })
         .complete(function(err, isaac) {
           if (!!err) {
