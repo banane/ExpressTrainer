@@ -1,0 +1,13 @@
+1|C|Slow Pullups|False|0|Hanging from a bar, pullup over 3 seconds and lower over 3 seconds
+2|C|Fast Pullups|False|0|Hangin from a bar, pullup and lower as fast as possible
+3|C|Straight Leg Lifts|False|0| Toes to bar, don't use momentum
+4|C|Knee tucks|False|0| hanging knees to chest
+5|B|Bouldering Pyramids (4) |True|-3|3 below bouldering Par, onsite 4  2 below o/s 3; 1 below o/s 2; @par 1
+6|B|Bouldering Projects|True|1|Project # problems specified one level above your par flash level
+7|R|Rope Triples |True|-1| Do triples at one grade lower than your par route level
+8|R|Rope Onsight Push|True|+1| Try to onsight one grade about your par level
+9|R|Rope Project|True|+1| Max 15 minutes each, fast changeover, one above your best level
+10|B|Bouldering Projects|True|2|Project # problems specified one level above your best level
+11|C|Windsprints|False|0|Sprint 30 seconds as fast as you can
+12|C|Burpees| You know what these are!
+13|C|Box Jumps|  Two-legged
