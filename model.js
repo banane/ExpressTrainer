@@ -5,17 +5,6 @@ var Sequelize = require('sequelize')
        host: 'localhost'
     })
 
-  sequelize
-  .authenticate()
-  .complete(function(err) {
-    if (!!err) {
-      console.log('Unable to connect to the database:', err)
-    } else {
-      console.log('Connection has been established successfully in model.');
-    }
-  })
-
-
 
 exports.syncUp = syncUp = function syncUp(){
 
@@ -33,7 +22,6 @@ exports.syncUp = syncUp = function syncUp(){
 }
 
 exports.sequelize = sequelize;
-
 
 exports.User = User = sequelize.define('user', {
     username: Sequelize.STRING,
@@ -54,20 +42,20 @@ exports.Coach = Coach = sequelize.define('coach', {
   })
 
 
-  // Team = sequelize.define('team', {
-  //   teamName: Sequelize.STRING,
-  //   teamGoal: Sequelize.STRING
-  // })
+exports.Team = Coach = sequelize.define('team', {
+    teamName: Sequelize.STRING,
+    teamGoal: Sequelize.STRING
+  })
 
-  // Workouts = sequelize.define('workout',{
-  //   workoutName: Sequelize.STRING,
-  //   workoutTheme: Sequelize.STRING,
-  //   workoutDescription: Sequelize.TEXT,
-  //   workoutExercises: Sequelize.ARRAY(Sequelize.INTEGER),
-  //   exerciseReps: Sequelize.ARRAY(Sequelize.INTEGER)
-  // })
+exports.Workout = sequelize.define('workout',{
+    workoutName: Sequelize.STRING,
+    workoutTheme: Sequelize.STRING,
+    workoutDescription: Sequelize.TEXT,
+    workoutExercises: Sequelize.ARRAY(Sequelize.INTEGER),
+    exerciseReps: Sequelize.ARRAY(Sequelize.INTEGER)
+  })
 
-  // Exercises = sequelize.define('exercise',{
-  //   exerciseName: Sequelize.STRING,
-  //   exerciseDescription: Sequelize.TEXT
-  // })
+exports.Exercise = sequelize.define('exercise',{
+    exerciseName: Sequelize.STRING,
+    exerciseDescription: Sequelize.TEXT
+  })
