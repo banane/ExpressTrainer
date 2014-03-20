@@ -66,18 +66,19 @@ exports.Exercise = Exercise = sequelize.define('exercise',{
 
 exports.Workout = Workout = sequelize.define('workout',{
     workoutId: Sequelize.INTEGER,
+    createdBy: Sequelize.INTEGER,
     workoutName: Sequelize.STRING,
     workoutTheme: Sequelize.STRING,
     workoutDescription: Sequelize.TEXT,
-    workoutExercises: Sequelize.ARRAY(Sequelize.INTEGER),
-    exerciseReps: Sequelize.ARRAY(Sequelize.INTEGER),
+    workoutExercises: Sequelize.STRING,
+    exerciseReps: Sequelize.STRING,
     targetTime: Sequelize.INTEGER
   })
 
 exports.WorkoutHistory = WorkoutHistory = sequelize.define('workouthistory',{
     athleteId: Sequelize.INTEGER,
     workoutId: Sequelize.INTEGER,
-    workoutActual: Sequelize.ARRAY(Sequelize.INTEGER),
+    workoutActual: Sequelize.STRING,
     workoutDate: Sequelize.DATE,
     athleteNotes: Sequelize.TEXT,
     coachNotes: Sequelize.TEXT
@@ -87,8 +88,8 @@ exports.WorkoutHistory = WorkoutHistory = sequelize.define('workouthistory',{
 exports.WorkoutSchedule = WorkoutSchedule = sequelize.define('workoutschedule',{
     athleteId: Sequelize.INTEGER,
     teamId: Sequelize.INTEGER,
-    workouts: Sequelize.ARRAY(Sequelize.INTEGER),
-    workoutDaysFromStart: Sequelize.ARRAY(Sequelize.INTEGER),
+    workouts: Sequelize.STRING,
+    workoutDaysFromStart: Sequelize.STRING,
     scheduleStartDate: Sequelize.DATE,
     coachNotes: Sequelize.TEXT
 })

@@ -106,7 +106,6 @@ function getTeams(){
 function getWorkouts(){
   fs.readFileSync('./seedData/Workouts.txt').toString().split('\n').forEach(function (line) { 
     splitline = line.split("|");  
-    console.log(splitline);
     model.Workout
      .create({
       workoutId: parseInt(splitline[0]),
@@ -114,6 +113,8 @@ function getWorkouts(){
       workoutName: splitline[2],
       workoutTheme: splitline[3],
       workoutDescription: splitline[4],
+      workoutExercises: splitline[5],
+      exerciseReps: splitline[6],
       targetTime: parseInt(splitline[7])
      })
 
