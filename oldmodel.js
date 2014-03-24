@@ -53,10 +53,6 @@ exports.Team = Team = sequelize.define('team', {
     teamGoal: Sequelize.STRING
   })
 
-// Athlete.hasOne(Team, { foreignKey: team_teamId});
-// Team.hasOne(Coach, {foreignKey: coachId});
-// Team.belongsTo(Coach);
-// Athlete.belongsTo(Team);
 
 exports.Exercise = Exercise = sequelize.define('exercise',{
     exerciseId: Sequelize.INTEGER,

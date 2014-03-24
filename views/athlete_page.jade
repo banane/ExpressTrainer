@@ -27,26 +27,23 @@ html(lang="en")>
 			hr
 
 			div(class="jumbotron")
-				h2 Big Brother Can Now Watch your Workout!
-				p(class="lead") Training to climb just got 21st century.
+				h3 #{current_athlete}, welcome to your training page!
+				p(class="lead") #{tn} / Coach #{cn} says let's get psyched!
 
-				form(class="form-inline",method='POST',action='/add_mail')
-					input(type="text", class="input-small", placeholder="Email", name='email')
-					button(type="submit", class="btn") Register for a beta invite!
 			hr
 
 			div(class="row-fluid marketing")
 				div(class="span6")
 					img(class="thumbnail", src="/images/serenity-connor.jpg")
 				div(class="span6")
-					h4 What's your goal?
-					p Your hardest route?   Next year's national champsionships?  Work with your coach on a long-range training plan.
+					h5 Goal: #{goal} 
+					h5 #{gd}
+					h5 Bouldering Par: V#{bp}
+					h5 Bouldering Best: V#{bb}
+					h5 Current Sport Route Par:  #{sp}
+					h5 Current Best Sport Route: #{sb}
 					
-					h4 Have a plan for every workout
-					p Do the right workout with the right theme on the right day, and watch your performance soar!
-
-					h4 Workout History
-					p What workouts have been assigned in the past and how have you done on those workouts?
+					
 			hr
 
 			div(class="footer")

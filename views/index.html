@@ -19,7 +19,7 @@ html(lang="en")>
 
 			.bg {
 
-				background: url(LoveOnBeach.jpg) no-repeat center center fixed; 
+				background: url(training_background.jpg) no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -91,14 +91,14 @@ html(lang="en")>
 				h2 Flying Robots Deliver Love in San Francisco
 				p class="lead">Cupid just got 21st century.
 
-				form(class="form-inline")
-					input(type="text", class="input-small", placeholder="Email")
+				form(class="form-inline",method='POST',action='/add_mail')
+					input(type="text", class="input-small", placeholder="Email", name='email')
 					button(type="submit", class="btn") Register for a beta invite!
 			hr
 
 			div(class="row-fluid marketing")
 				div(class="span6")
-					img(class="thumbnail" src="copter.jpg")
+					img(class="thumbnail" src="serenity-connor.jpg")
 				div(class="span6")
 					h4 Choose Your Love
 					p Love more than tacos? We deliver chocolates, love notes, roses and more!
