@@ -24,7 +24,13 @@ exports.syncUp = syncUp = function syncUp(){
 exports.sequelize = sequelize;
 
 exports.Athlete = Athlete = sequelize.define('athlete', {
-    athleteId: Sequelize.INTEGER,
+    athleteId: {
+      type      : Sequelize.INTEGER,
+      validate  : {
+        isInt: true,
+      }
+      allowNull : false,
+    }
     username: Sequelize.STRING,
     password: Sequelize.STRING,
     age: Sequelize.INTEGER,
@@ -36,7 +42,12 @@ exports.Athlete = Athlete = sequelize.define('athlete', {
     routePar: Sequelize.INTEGER,
     routeBest: Sequelize.INTEGER,
     spokenName: Sequelize.STRING
+  }, {
+    getterMethods   : {
+      athleteId     : function() return this.getDataValue('athleteId');
+    }
   })
+
 
 exports.Coach = Coach = sequelize.define('coach', {
     coachId: Sequelize.INTEGER,
@@ -53,6 +64,10 @@ exports.Team = Team = sequelize.define('team', {
     teamGoal: Sequelize.STRING
   })
 
+Athlete.hasOne(Team, { foreignKey: teamId});
+Team.hasOne(Coach, {foreignKey: coachId});
+Team.belongsTo(Coach);
+Athlete.belongsTo(Team);
 
 exports.Exercise = Exercise = sequelize.define('exercise',{
     exerciseId: Sequelize.INTEGER,
