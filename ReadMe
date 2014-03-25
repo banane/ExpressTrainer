@@ -1,6 +1,13 @@
 Anne Smith for Hackbright
 
+Express Trainer
+
 
 To Install:
 Install Node.js
-Run node main.js to start server.
+NPM (node package manager) installed with Node js
+npm install express
+npm install underscore
+Run node app.js to start server.
+
+If you have any other package errors, run "npm install [package name]"
