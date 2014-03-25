@@ -34,7 +34,7 @@ exports.userlist = function(req, res) {
 
 exports.add_mail = function(req, res) {
 	var email = (req.body.email).substr(0,256);
-    console.log ('email enterd = '+email);
+    console.log ('email entered = '+email);
     db = model.sequelize;
     uname = email;
     db
@@ -43,7 +43,7 @@ exports.add_mail = function(req, res) {
          if (!!err) {
            console.log('An error occurred while authenticating:', err)
          } else {         
-           model.Athlete
+						model.Athlete
             .find({ where: { username: uname} })
             .complete(function(err, athlete) {
               if (!!err) {
@@ -53,33 +53,40 @@ exports.add_mail = function(req, res) {
                 console.log('No user with the username ' + uname + ' has been found.');
                 res.render('index', { title: 'Express' });
               } else {
-
 //TODO add error handling; for prototype implementation ensure dataset is clean 
 //so a coach and team will be found; saving time/space until foreign keys are working in sequelize
 
+                console.log("success: athlete: " + athlete.teamId);
                 model.Team
-                  .find({ where: { teamId: athlete.teamId} })
-                  .complete(function(err,team) {
-                  model.Coach
-                    .find({ where: {coachId: team.teamId} })
-                    .complete(function(err, coach){
-                    console.log('Hello ' + coach.spokenName + '!');
-                    res.render('athlete_page', {title: 'Express'
-                                                ,current_athlete: athlete.spokenName
-                                                ,athleteId: athlete.athleteId
-                                                ,tn: team.teamName
-                                                ,cn: coach.spokenName
-                                                ,goal: athlete.goal
-                                                ,gd: athlete.goalDate.toDateString()
-                                                ,bp: athlete.boulderPar
-                                                ,bb: athlete.boulderBest
-                                                ,sp: athlete.routePar
-                                                ,sb: athlete.routeBest});                
-                          
-                      })
-                   })
-              }
+                  .find( { where: { teamId: athlete.teamId } })
+                  .complete(function(err, team) {
+                  	if(!err){
+                  	  console.log('success: teams coach: ' + team.coachId);
+                  	  model.Coach
+                  	    .find( { where: { coachId: team.coachId } } )
+                  	    .complete( function(err, coach) {
+                  	    	if(!err){
+	                  	       console.log('success: coach obj: ' + coach.spokenName);
+	                  	       res.render('athlete_page', {title: 'Express'
+																										,current_athlete: athlete.spokenName
+																										,athleteId: athlete.athleteId
+																										,tn: team.teamName
+																										,cn: coach.spokenName
+																										,goal: athlete.goal
+																										,gd: athlete.goalDate.toDateString()
+																										,bp: athlete.boulderPar
+																										,bb: athlete.boulderBest
+																										,sp: athlete.routePar
+																										,sb: athlete.routeBest});                
+															
+	                  	    }
+                  	    })
+                  	}
+ 	             		})                 
+              
+            	 } 
             })
+
          }
       })
   };
