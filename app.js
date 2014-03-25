@@ -21,7 +21,8 @@ app.configure(function(){
   app.set('view options', { layout: false });
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.bodyParser());
+ // app.use(express.bodyParser());
+  app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
@@ -37,6 +38,11 @@ db = model.sequelize;
 app.post('/add_mail', routes.add_mail);
 console.log("we are in app after add_mail");
 app.get('/athlete_home',routes.athlete_home);
+console.log("after athlete_home");
+app.get('/see_workouts', routes.see_workouts);
+console.log("after see workouts");
+
+app.get('/userlist', routes.userlist);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

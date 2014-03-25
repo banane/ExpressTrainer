@@ -1,6 +1,6 @@
-doctype 5
+doctype html
 
-html(lang="en")>
+html(lang="en")
 	head
 		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
 		meta(charset="utf-8")
@@ -17,15 +17,6 @@ html(lang="en")>
 
 		div(class="container-narrow")
 
-			div(class="masthead")
-				ul(class="nav nav-pills pull-right")
-					li(class="active")
-						a(href="/") Home
-					li
-						a(href="#") Register
-				h3(class="muted") pocket trainer
-			hr
-
 			div(class="jumbotron")
 				h3 #{current_athlete}, welcome to your training page!
 				p(class="lead") #{tn} / Coach #{cn} says let's get psyched!
@@ -40,24 +31,18 @@ html(lang="en")>
 					h5 #{gd}
 					h5 Bouldering Par: V#{bp}
 					h5 Bouldering Best: V#{bb}
-					h5 Current Sport Route Par:  #{sp}
-					h5 Current Best Sport Route: #{sb}
+					h5 Sport Route Par:  #{sp}
+					h5 Sport Route Best: #{sb}
+					h5 AthleteId: #{athleteId}
+
+
+					form(class="form-inline",method='GET',action='/see_workouts')
 					
-					
+					button(type="submit", class="btn", athlete = '10', action='/see_workouts') See Workouts!
+				
 			hr
 
 			div(class="footer")
 				p © pockettrainer 2014
-		script
-			$('#register').click(function() {
-					var email = $('#register_email').val();
-					var jqxhr = $.getJSON('http://lovecopter.herokuapp.com/add_mail',
-					{"email":email},
-					function (data) {
-						console.log(data);
-					});
-					jqxhr.error(function(){
-						console.log("Something is up with the server!");
-					})
-				});
+
 			
