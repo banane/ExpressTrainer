@@ -1,9 +1,19 @@
+/* PG
+
 var Sequelize = require('sequelize')
   , sequelize = new Sequelize('pgtest', 'demorole1', 'password1', {
        dialect: "postgres", // or 'sqlite', 'postgres', 'mariadb'
        port:    5432, // or 5432 (for postgres)
        host: 'localhost'
-    })
+    })*/
+    
+/* sqlite 3 */
+var Sequelize = require('sequelize'), sequelize = new Sequelize('express_trainer', '', '', {
+  // sqlite! now!
+  dialect: 'sqlite',
+ 
+  storage: '/Users/banane/dev/node/express_fork/express_trainer.sqlite'
+})
 
 
 exports.syncUp = syncUp = function syncUp(){
